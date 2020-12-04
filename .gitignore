@@ -8,5 +8,6 @@ source/content/static/
 
 env/
 tmp/
-
+source/cron_job.log
+source/logs/*
 db.sqlite3
