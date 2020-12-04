@@ -1,10 +1,18 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-12-04 15:05+0800\n"
+"POT-Creation-Date: 2020-12-04 15:18+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Wentao Han <wentao.han@gmail.com>\n"
-"Language: zh_CN\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,58 +20,58 @@ msgstr ""
 
 #: accounts/forms.py:18
 msgid "Password"
-msgstr "密码"
+msgstr ""
 
 #: accounts/forms.py:24
 msgid "Remember me"
-msgstr "记住我"
+msgstr ""
 
 #: accounts/forms.py:34
 msgid "You entered an invalid password."
-msgstr "您输入了无效的密码。"
+msgstr ""
 
 #: accounts/forms.py:40
 msgid "Username"
-msgstr "用户名"
+msgstr ""
 
 #: accounts/forms.py:55
 msgid "You entered an invalid username."
-msgstr "您输入了无效的用户名。"
+msgstr ""
 
 #: accounts/forms.py:58 accounts/forms.py:82 accounts/forms.py:106
 #: accounts/forms.py:193 accounts/forms.py:211 accounts/forms.py:254
 msgid "This account is not active."
-msgstr "此帐户不活跃。"
+msgstr ""
 
 #: accounts/forms.py:66 accounts/forms.py:118 accounts/forms.py:157
 #: accounts/forms.py:183 accounts/forms.py:224 accounts/forms.py:244
 msgid "Email"
-msgstr "电子邮箱"
+msgstr ""
 
 #: accounts/forms.py:79 accounts/forms.py:164 accounts/forms.py:190
 #: accounts/forms.py:251
 msgid "You entered an invalid email address."
-msgstr "你输入了一个无效的邮箱地址。"
+msgstr ""
 
 #: accounts/forms.py:90 accounts/forms.py:131 accounts/forms.py:201
 msgid "Email or Username"
-msgstr "电子邮箱或用户名"
+msgstr ""
 
 #: accounts/forms.py:103 accounts/forms.py:138 accounts/forms.py:208
 msgid "You entered an invalid email address or username."
-msgstr "您输入了无效的电子邮件地址或用户名。"
+msgstr ""
 
 #: accounts/forms.py:118
 msgid "Required. Enter an existing email address."
-msgstr "需要。输入现有的电子邮件地址。"
+msgstr ""
 
 #: accounts/forms.py:125
 msgid "You can not use this email address."
-msgstr "你不能使用这个电子邮件地址。"
+msgstr ""
 
 #: accounts/forms.py:141 accounts/forms.py:167
 msgid "This account has already been activated."
-msgstr "该帐户已被激活。"
+msgstr ""
 
 #: accounts/forms.py:145 accounts/forms.py:171
 msgid "Activation code not found."
@@ -73,50 +81,50 @@ msgstr ""
 msgid ""
 "Activation code has already been sent. You can request a new code in 24 "
 "hours."
-msgstr "激活码已经发送。你可以在24小时内再次请求新的激活码。"
+msgstr ""
 
 #: accounts/forms.py:219
 msgid "First name"
-msgstr "名"
+msgstr ""
 
 #: accounts/forms.py:220
 msgid "Last name"
-msgstr "姓"
+msgstr ""
 
 #: accounts/forms.py:234
 msgid "Please enter another email."
-msgstr "请输入一个新的电子邮箱。"
+msgstr ""
 
 #: accounts/forms.py:238
 msgid "You can not use this mail."
-msgstr "你不能使用这个邮箱。"
+msgstr ""
 
 #: accounts/templates/accounts/emails/activate_profile.html:15
 #: accounts/templates/accounts/emails/activate_profile.txt:3
 msgid "To activate your profile, please follow this link:"
-msgstr "若要激活你的账号，请访问以下链接："
+msgstr ""
 
 #: accounts/templates/accounts/emails/change_email.html:15
 #: accounts/templates/accounts/emails/change_email.txt:3
 msgid "To change your current email address, please follow the link:"
-msgstr "要更改您当前的电子邮件地址，请点击以下链接："
+msgstr ""
 
 #: accounts/templates/accounts/emails/forgotten_username.html:15
 #: accounts/templates/accounts/emails/forgotten_username.txt:3
 msgid "Your username is:"
-msgstr "你的用户名是:"
+msgstr ""
 
 #: accounts/templates/accounts/emails/restore_password_email.html:15
 #: accounts/templates/accounts/emails/restore_password_email.txt:3
 msgid ""
 "You received this email because you requested a password reset for your user "
 "account."
-msgstr "您收到此电子邮件是因为您要求为您的用户帐户重置密码。"
+msgstr ""
 
 #: accounts/templates/accounts/emails/restore_password_email.html:19
 #: accounts/templates/accounts/emails/restore_password_email.txt:5
 msgid "Please, go to the following page and choose a new password:"
-msgstr "请转到以下页面并选择一个新密码："
+msgstr ""
 
 #: accounts/templates/accounts/log_in.html:8
 #: accounts/templates/accounts/log_in.html:15
@@ -125,37 +133,37 @@ msgstr "请转到以下页面并选择一个新密码："
 #: accounts/templates/accounts/restore_password.html:23
 #: content/templates/layouts/default/page.html:56
 msgid "Log in"
-msgstr "登录"
+msgstr ""
 
 #: accounts/templates/accounts/log_in.html:23
 msgid "Forgot your password?"
-msgstr "忘记密码了吗？"
+msgstr ""
 
 #: accounts/templates/accounts/log_in.html:26
 msgid "Forgot your username?"
-msgstr "忘记了你的用户名？"
+msgstr ""
 
 #: accounts/templates/accounts/log_in.html:29
 #: accounts/templates/accounts/resend_activation_code.html:8
 msgid "Resend an activation code"
-msgstr "重新发送激活码"
+msgstr ""
 
 #: accounts/templates/accounts/log_out.html:7
 msgid "Logged out"
-msgstr "已经登出"
+msgstr ""
 
 #: accounts/templates/accounts/log_out.html:10
 msgid "Thanks for spending some quality time with the site today."
-msgstr "感谢您访问本网站。"
+msgstr ""
 
 #: accounts/templates/accounts/log_out.html:14
 msgid "Log in again"
-msgstr "再次登录"
+msgstr ""
 
 #: accounts/templates/accounts/profile/change_email.html:8 accounts/utils.py:31
 #: content/templates/layouts/default/page.html:49
 msgid "Change email"
-msgstr "修改电子邮箱"
+msgstr ""
 
 #: accounts/templates/accounts/profile/change_email.html:15
 #: accounts/templates/accounts/profile/change_password.html:15
@@ -163,163 +171,162 @@ msgstr "修改电子邮箱"
 #: accounts/templates/accounts/restore_password_confirm.html:21
 #: content/templates/main/change_language.html:29
 msgid "Change"
-msgstr "修改"
+msgstr ""
 
 #: accounts/templates/accounts/profile/change_password.html:8
 #: content/templates/layouts/default/page.html:43
 msgid "Change password"
-msgstr "修改密码"
+msgstr ""
 
 #: accounts/templates/accounts/profile/change_profile.html:8
 #: content/templates/layouts/default/page.html:46
 msgid "Change profile"
-msgstr "更改档案"
+msgstr ""
 
 #: accounts/templates/accounts/remind_username.html:8
 msgid "Remind a username"
-msgstr "提醒用户名"
+msgstr ""
 
 #: accounts/templates/accounts/remind_username.html:15
 #: accounts/templates/accounts/resend_activation_code.html:15
 #: accounts/templates/accounts/restore_password.html:15
 msgid "Next"
-msgstr "下一步"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password.html:8
 #: accounts/templates/accounts/restore_password_confirm.html:8
 #: accounts/templates/accounts/restore_password_done.html:7
 #: accounts/utils.py:40
 msgid "Restore password"
-msgstr "恢复密码"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password_confirm.html:13
 msgid ""
 "Please enter your new password twice so we can verify you typed it in "
 "correctly."
-msgstr "请输入两次你的新密码，以确保你输入正确。"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password_confirm.html:28
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used. Please request a new password reset."
-msgstr "密码重设链接非法，可能已被使用。请重新请求密码重设。"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password_done.html:10
 msgid ""
 "We've emailed you instructions for setting your password, if an account "
 "exists with the email you entered."
-msgstr "如果你输入的电子邮箱地址存在，我们已经把设置密码的说明发送到该邮箱中。"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password_done.html:11
 msgid "You should receive them shortly."
-msgstr "你应该很快就能收到邮件。"
+msgstr ""
 
 #: accounts/templates/accounts/restore_password_done.html:15
 msgid ""
 "If you don't receive an email, please make sure you've entered the address "
 "you signed up with, and check your spam folder."
 msgstr ""
-"如果您没有收到电子邮件，请确保您输入了您注册的地址，并检查垃圾邮件文件夹。"
 
 #: accounts/templates/accounts/sign_up.html:8
 #: content/templates/layouts/default/page.html:59
 msgid "Create an account"
-msgstr "创建账号"
+msgstr ""
 
 #: accounts/templates/accounts/sign_up.html:15
 msgid "Create"
-msgstr "创建"
+msgstr ""
 
 #: accounts/utils.py:22
 msgid "Profile activation"
-msgstr "简档激活"
+msgstr ""
 
 #: accounts/utils.py:50
 msgid "Your username"
-msgstr "您的用户名"
+msgstr ""
 
 #: accounts/views.py:139
 msgid ""
 "You are signed up. To activate the account, follow the link sent to the mail."
-msgstr "您已注册。 要激活帐户，请按照发送到邮件的链接进行操作。"
+msgstr ""
 
 #: accounts/views.py:146
 msgid "You are successfully signed up!"
-msgstr "您已成功注册！"
+msgstr ""
 
 #: accounts/views.py:164
 msgid "You have successfully activated your account!"
-msgstr "你已成功激活你的账号！"
+msgstr ""
 
 #: accounts/views.py:194
 msgid "A new activation code has been sent to your email address."
-msgstr "新的激活码已发送到您的电子邮件地址。"
+msgstr ""
 
 #: accounts/views.py:239
 msgid "Profile data has been successfully updated."
-msgstr "已经成功更新了个人信息数据。"
+msgstr ""
 
 #: accounts/views.py:273
 msgid "To complete the change of email address, click on the link sent to it."
-msgstr "要完成电子邮件地址的更改，请点击发送给它的链接。"
+msgstr ""
 
 #: accounts/views.py:278
 msgid "Email successfully changed."
-msgstr "电子邮箱地址修改成功。"
+msgstr ""
 
 #: accounts/views.py:296
 msgid "You have successfully changed your email!"
-msgstr "你成功修改了你的电子邮箱地址！"
+msgstr ""
 
 #: accounts/views.py:309
 msgid "Your username has been successfully sent to your email."
-msgstr "您的用户名已成功发送至您的电子邮件。"
+msgstr ""
 
 #: accounts/views.py:324
 msgid "Your password was changed."
-msgstr "你的密码已被修改。"
+msgstr ""
 
 #: accounts/views.py:336
 msgid "Your password has been set. You may go ahead and log in now."
-msgstr "你的密码已经重设。现在可以继续登录。"
+msgstr ""
 
 #: app/conf/development/settings.py:124 app/conf/production/settings.py:115
 msgid "English"
-msgstr "英语"
+msgstr ""
 
-#: app/conf/development/settings.py:125 app/conf/production/settings.py:116
-msgid "Russian"
-msgstr "俄语"
-
-#: app/conf/development/settings.py:126 app/conf/production/settings.py:117
+#: app/conf/development/settings.py:125 app/conf/production/settings.py:117
 msgid "Simplified Chinese"
-msgstr "简体中文"
+msgstr ""
+
+#: app/conf/production/settings.py:116
+msgid "Russian"
+msgstr ""
 
 #: content/templates/layouts/default/page.html:30
 msgid "Home"
-msgstr "首页"
+msgstr ""
 
 #: content/templates/layouts/default/page.html:40
 msgid "My profile"
-msgstr "档案see"
+msgstr ""
 
 #: content/templates/layouts/default/page.html:52
 msgid "Log out"
-msgstr "登出"
+msgstr ""
 
 #: content/templates/layouts/default/page.html:66
 #: content/templates/main/change_language.html:10
 msgid "Change language"
-msgstr "改变语言1"
+msgstr ""
 
 #: content/templates/main/change_language.html:19
 msgid "Select the language"
-msgstr "选择语言"
+msgstr ""
 
 #: content/templates/main/index.html:9
 msgid "Your username is"
-msgstr "你的用户名是"
+msgstr ""
 
 #: content/templates/main/index.html:13
 msgid "You are a guest."
-msgstr "你目前的身份是访客。"
+msgstr ""

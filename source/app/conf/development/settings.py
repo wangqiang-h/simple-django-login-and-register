@@ -122,7 +122,6 @@ USE_L10N = True
 LANGUAGE_CODE = 'en'
 LANGUAGES = [
     ('en', _('English')),
-    ('ru', _('Russian')),
     ('zh-Hans', _('Simplified Chinese')),
 ]
 
