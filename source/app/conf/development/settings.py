@@ -3,6 +3,7 @@ import warnings
 from django.utils.translation import ugettext_lazy as _
 from os.path import dirname
 
+
 warnings.simplefilter('error', DeprecationWarning)
 
 BASE_DIR = dirname(dirname(dirname(dirname(os.path.abspath(__file__)))))
@@ -30,6 +31,8 @@ INSTALLED_APPS = [
     # Application apps
     'main',
     'accounts',
+
+    'dbmodels',
 ]
 
 MIDDLEWARE = [
@@ -72,8 +75,12 @@ DEFAULT_FROM_EMAIL = 'test@example.com'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',  # 数据库引擎
+        'NAME': 'djangotest',  # 数据库名，先前创建的
+        'USER': 'root',  # 用户名，可以自己创建用户
+        'PASSWORD': '12345678wq',  # 密码
+        'HOST': '127.0.0.1',  # mysql服务所在的主机ip
+        'PORT': '3306',  # mysql服务端口
     }
 }
 
@@ -94,11 +101,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 ENABLE_USER_ACTIVATION = True
 DISABLE_USERNAME = False
-LOGIN_VIA_EMAIL = True
+LOGIN_VIA_EMAIL = False
 LOGIN_VIA_EMAIL_OR_USERNAME = False
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'accounts:log_in'
 USE_REMEMBER_ME = True
+SESSION_COOKIE_AGE = 60 * 60 * 24
 
 RESTORE_PASSWORD_VIA_EMAIL_OR_USERNAME = False
 ENABLE_ACTIVATION_AFTER_EMAIL_CHANGE = True
@@ -118,7 +126,7 @@ LANGUAGES = [
     ('zh-Hans', _('Simplified Chinese')),
 ]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 USE_TZ = True
 
 STATIC_ROOT = os.path.join(CONTENT_DIR, 'static')
@@ -134,3 +142,48 @@ STATICFILES_DIRS = [
 LOCALE_PATHS = [
     os.path.join(CONTENT_DIR, 'locale')
 ]
+
+if os.path.exists(os.path.join(BASE_DIR, 'logs')) is False:
+    os.mkdir(os.path.join(BASE_DIR, 'logs'))
+# logs目录绝对路径
+LOGS_ROOT = os.path.join(BASE_DIR, 'logs')
+# 默认情况下，LOGGING设置与Django的默认logging配置进行合并
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'default': {
+            'format': '%(asctime)s %(levelname)s %(pathname)s %(filename)s %(funcName)s %(lineno)d %(message)s',
+            # 自定义输出格式
+        },
+        'simple': {
+            'format': '%(asctime)s {levelname} {message}',
+        },
+    },
+    'filters': {
+    },
+    'handlers': {
+        'console': {
+            'level': 'INFO',
+            'class': 'logging.StreamHandler',
+            'formatter': 'default'
+        },
+        'accounts_handler': {  # 可为每个app设定一个handler
+            'level': 'INFO',
+            'class': 'logging.handlers.RotatingFileHandler',  # 输出到文件
+            'encoding': "utf-8",
+            'filename': os.path.join(LOGS_ROOT, 'accounts.log'),  # 日志文件路径+文件名
+            'formatter': 'default'
+        }
+    },
+    'loggers': {
+        'accounts_logger': {  # 可为每个app设定一个logger
+            'handlers': ['accounts_handler', 'console'],  # 选定handler进行处理
+            'level': 'INFO',
+            'propagate': False,
+        }
+    }
+}
+
+

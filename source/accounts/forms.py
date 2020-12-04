@@ -24,6 +24,7 @@ class SignIn(UserCacheMixin, forms.Form):
             self.fields['remember_me'] = forms.BooleanField(label=_('Remember me'), required=False)
 
     def clean_password(self):
+        print("clean_password")
         password = self.cleaned_data['password']
 
         if not self.user_cache:
@@ -45,9 +46,11 @@ class SignInViaUsernameForm(SignIn):
         return ['username', 'password']
 
     def clean_username(self):
+        print("clean_username")
         username = self.cleaned_data['username']
 
         user = User.objects.filter(username=username).first()
+
         if not user:
             raise ValidationError(_('You entered an invalid username.'))
 
@@ -253,3 +256,12 @@ class RemindUsernameForm(UserCacheMixin, forms.Form):
         self.user_cache = user
 
         return email
+
+
+class NameForm(forms.Form):
+    your_name = forms.CharField(label='Your name', max_length=100)
+
+    def clean_your_name(self):
+        if 'wq' in self.cleaned_data["your_name"]:
+            raise ValidationError("wq in your name")
+        return self.cleaned_data["your_name"]

@@ -36,6 +36,9 @@
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
             {% if request.user.is_authenticated %}
+               <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:my_profile' pk=request.user.id%}">{% trans 'My profile' %}</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:change_password' %}">{% trans 'Change password' %}</a>
                 </li>

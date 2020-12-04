@@ -1,0 +1,21 @@
+{% load static %}
+<link href="{% static 'dbmodels/body.css' %}" rel="stylesheet">
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Hello</p>
+{{object.name}}
+{{object.birthday}}
+{{object.students.class_name}}
+{{object.parents.father_name}}
+{{object.parents.mother_name}}
+
+
+</body>
+</html>

@@ -6,10 +6,10 @@ from django.contrib.auth.views import (
     LogoutView as BaseLogoutView, PasswordChangeView as BasePasswordChangeView,
     PasswordResetDoneView as BasePasswordResetDoneView, PasswordResetConfirmView as BasePasswordResetConfirmView,
 )
-from django.shortcuts import get_object_or_404, redirect
+from django.shortcuts import get_object_or_404, redirect, HttpResponse
 from django.utils.crypto import get_random_string
 from django.utils.decorators import method_decorator
-from django.utils.http import is_safe_url
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.encoding import force_bytes
 from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext_lazy as _
@@ -18,9 +18,12 @@ from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.debug import sensitive_post_parameters
 from django.views.generic import View, FormView
 from django.conf import settings
+from django.views.generic import DetailView
+from django.contrib.auth.models import User
 
 from .utils import (
-    send_activation_email, send_reset_password_email, send_forgotten_username_email, send_activation_change_email,
+    send_activation_email, send_reset_password_email, send_forgotten_username_email,
+    send_activation_change_email, my_logger
 )
 from .forms import (
     SignInViaUsernameForm, SignInViaEmailForm, SignInViaEmailOrUsernameForm, SignUpForm,
@@ -28,6 +31,8 @@ from .forms import (
     ResendActivationCodeForm, ResendActivationCodeViaEmailForm, ChangeProfileForm, ChangeEmailForm,
 )
 from .models import Activation
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
 
 
 class GuestOnlyView(View):
@@ -54,17 +59,27 @@ class LogInView(GuestOnlyView, FormView):
 
     @method_decorator(sensitive_post_parameters('password'))
     @method_decorator(csrf_protect)
-    @method_decorator(never_cache)
+    # @method_decorator(never_cache)
     def dispatch(self, request, *args, **kwargs):
         # Sets a test cookie to make sure the user has cookies enabled
         request.session.set_test_cookie()
+        print(request.user)
+        print(request.user.is_authenticated)
+        for key, value in request.session.items():
+            print('session {} => {}'.format(key, value))
 
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
+        print("form_valid")
         request = self.request
 
         # If the test cookie worked, go ahead and delete it since its no longer needed
+        print(request.user)
+        print(request.user.is_authenticated)
+        for key, value in request.session.items():
+            print('session {} => {}'.format(key, value))
+
         if request.session.test_cookie_worked():
             request.session.delete_test_cookie()
 
@@ -77,7 +92,7 @@ class LogInView(GuestOnlyView, FormView):
         login(request, form.user_cache)
 
         redirect_to = request.POST.get(REDIRECT_FIELD_NAME, request.GET.get(REDIRECT_FIELD_NAME))
-        url_is_safe = is_safe_url(redirect_to, allowed_hosts=request.get_host(), require_https=request.is_secure())
+        url_is_safe = url_has_allowed_host_and_scheme(redirect_to, allowed_hosts=request.get_host(), require_https=request.is_secure())
 
         if url_is_safe:
             return redirect(redirect_to)
@@ -329,3 +344,35 @@ class RestorePasswordDoneView(BasePasswordResetDoneView):
 
 class LogOutView(LoginRequiredMixin, BaseLogoutView):
     template_name = 'accounts/log_out.html'
+
+class MyProfileView(LoginRequiredMixin, DetailView):
+    model = User
+    template_name = "accounts/user_detail.html"
+
+def get_page(request, num=1):
+    print(num)
+    return HttpResponse(dir(request))
+
+
+from .forms import NameForm
+
+
+def get_name(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        print(request.POST)
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # ...
+            # redirect to a new URL:
+            return redirect('accounts:log_in')
+
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        my_logger.info("hello, info")
+        form = NameForm()
+
+    return render(request, 'accounts/name.html', {'form': form})

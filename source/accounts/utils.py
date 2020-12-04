@@ -3,7 +3,10 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+import logging
 
+
+my_logger = logging.getLogger('accounts_logger')
 
 def send_mail(to, template, context):
     html_content = render_to_string(f'accounts/emails/{template}.html', context)
